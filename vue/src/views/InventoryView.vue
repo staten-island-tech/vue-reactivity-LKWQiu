@@ -2,8 +2,8 @@
   <div class="Inventory">
 
     <button v-on:click="RandomNumber()"> ROLL </button>
-    <p v-if="randomNum > 1"> STARR</p>
-    <p v-else> U suck</p>
+    <p> {{ Number(randomNum) }} </p>
+    <!-- <p v-else> U suck</p> -->
 
 <!--     <p v-if="amount > 0">
       You have {{ amount }} stars
@@ -49,6 +49,7 @@ export default{
       const myNums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];  
       const randomNum = myNums[Math.floor(Math.random() * myNums.length)];  
       console.log(randomNum)
+      return(randomNum)
     },
   },
 }

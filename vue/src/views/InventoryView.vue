@@ -33,21 +33,23 @@
 
 <script>
 export default{
-  data() {
-     return {
-    } 
-  },
+  // data() {
+  //    return {
+      
+  //   } 
+  // },
   methods: {
-    /* RollGatch(){
-      this.amount++;
-      alert('U rolled something!!!')
-    } */
+
+    // RollGatch(){
+    //   this.amount++;
+    //   alert('U rolled something!!!')
+    // },
 
     RandomNumber(){
       const myNums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];  
       const randomNum = myNums[Math.floor(Math.random() * myNums.length)];  
       console.log(randomNum)
-    }
+    },
   },
 }
 

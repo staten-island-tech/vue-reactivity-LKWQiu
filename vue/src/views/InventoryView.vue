@@ -1,8 +1,13 @@
 <template>
-  <div class="Inventory">
+  <div class="Inventory"> 
 
+
+    
     <button v-on:click="RandomNumber()"> ROLL </button>
-    <p> {{ Number(randomNum) }} </p>
+    <p v-if="randomNum === '1'"> U got STAR</p>
+    <p v-else> NOTHING </p>
+    <!-- NOW MAKE IT DISPLAY NUMBER OF ITEMS -->
+
     <!-- <p v-else> U suck</p> -->
 
 <!--     <p v-if="amount > 0">
@@ -33,11 +38,11 @@
 
 <script>
 export default{
-  // data() {
-  //    return {
-      
-  //   } 
-  // },
+   data() {
+      return {
+        randomNum: ''
+     } 
+   },
   methods: {
 
     // RollGatch(){
@@ -45,11 +50,10 @@ export default{
     //   alert('U rolled something!!!')
     // },
 
-    RandomNumber(){
-      const myNums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];  
-      const randomNum = myNums[Math.floor(Math.random() * myNums.length)];  
-      console.log(randomNum)
-      return(randomNum)
+    RandomNumber() {
+      const myNums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+      const randomNum = myNums[Math.floor(Math.random() * myNums.length)];
+      this.randomNum = randomNum;
     },
   },
 }

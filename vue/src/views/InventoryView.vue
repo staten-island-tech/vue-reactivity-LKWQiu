@@ -1,7 +1,7 @@
 <template>
   <div class="Inventory"> 
 
-    <h3 v-if="Rolls > 10000"> U HAVE REACHED MAX ROLLS</h3>
+    <h3 v-if="Rolls > 10"> U HAVE REACHED MAX ROLLS</h3>
     <h3 v-else> You have Rolled {{Rolls}} times</h3>
     <button v-on:click="RandomNumber()"> ROLL </button>
     <p v-if="Mercuryamount > 0"> U got {{ Mercuryamount }} Mercury</p>
@@ -25,18 +25,34 @@
     <p v-if="Sunamount > 0"> U got {{ Sunamount }} Sun</p>
 
   </div>
+
+  <div class="History">
+    <p>hi</p>
+  </div>
 </template>
 
 <style>
 @media (min-width: 1024px) {
-  .Inventory {
+.Inventory {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 30%;
-  }
+  };
 }
+
+.History {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 20%;
+    padding-top: 30%;
+  };
+
 </style>
 
 <script>
@@ -62,6 +78,10 @@ export default{
      RollMercury(){
       console.log("works?");
         this.Mercuryamount++;
+        const carder = `
+        <p> You rolled a Mercury</p>
+        `
+        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
     },
     RollMars(){
       console.log("works?");

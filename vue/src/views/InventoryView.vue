@@ -50,7 +50,7 @@
     align-items: center;
     position: absolute;
     right: 20%;
-    padding-top: 30%;
+    padding-top: 5%;
   };
 
 </style>

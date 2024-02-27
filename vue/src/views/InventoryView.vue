@@ -86,38 +86,74 @@ export default{
     RollMars(){
       console.log("works?");
         this.Marsamount++;
+        const carder = `
+        <p> You rolled a Mars</p>
+        `
+        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
     },
     RollUranus(){
       console.log("works?");
         this.Uranusamount++;
+        const carder = `
+        <p> You rolled a Uranus</p>
+        `
+        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
     },
     RollVenus(){
       console.log("works?");
         this.Venusamount++;
+        const carder = `
+        <p> You rolled a Venus</p>
+        `
+        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
     },
     RollJupiter(){
       console.log("works?");
         this.Jupiteramount++
+        const carder = `
+        <p> You rolled a Jupiter</p>
+        `
+        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
     },
     RollNeptune(){
       console.log("works?");
         this.Neptuneamount++;
+        const carder = `
+        <p> You rolled a Neptune</p>
+        `
+        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
     },
     RollEarth(){
       console.log("works?");
         this.Earthamount++;
+        const carder = `
+        <p> You rolled a Earth</p>
+        `
+        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
     },
     RollSaturn(){
       console.log("works?");
         this.Saturnamount++;
+        const carder = `
+        <p> You rolled a Saturn</p>
+        `
+        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
     },
     RollPluto(){
       console.log("works?");
         this.Plutoamount++;
+        const carder = `
+        <p> You rolled a Pluto</p>
+        `
+        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
     },
     RollSun(){
       console.log("works?");
         this.Sunamount++;
+        const carder = `
+        <p> You rolled a Sun</p>
+        `
+        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
     },
 
     RandomNumber() {

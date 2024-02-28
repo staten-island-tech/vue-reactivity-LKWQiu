@@ -1,7 +1,7 @@
 <template>
   <div class="Inventory"> 
 
-    <h3 v-if="Rolls > 10"> U HAVE REACHED MAX ROLLS</h3>
+    <h3 v-if="Rolls > 10000"> U HAVE REACHED MAX ROLLS</h3>
     <h3 v-else> You have Rolled {{Rolls}} times</h3>
     <button v-on:click="RandomNumber()"> ROLL </button>
     <p v-if="Mercuryamount > 0"> U got {{ Mercuryamount }} Mercury</p>
@@ -27,8 +27,9 @@
   </div>
 
   <div class="History">
-    <p>hi</p>
+    
   </div>
+  
 </template>
 
 <style>
@@ -43,14 +44,15 @@
 }
 
 .History {
-    min-height: 100vh;
+    max-height: 70vh;
+    max-width: 15vh;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
     align-items: center;
     position: absolute;
     right: 20%;
-    padding-top: 5%;
+    margin-top: 5%;
+    overflow-y: scroll;
   };
 
 </style>

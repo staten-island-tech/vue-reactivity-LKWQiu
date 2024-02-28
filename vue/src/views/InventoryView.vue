@@ -1,35 +1,42 @@
 <template>
   <div class="Inventory"> 
-
-    <h3 v-if="Rolls > 10000"> U HAVE REACHED MAX ROLLS</h3>
-    <h3 v-else> You have Rolled {{Rolls}} times</h3>
+    <h3 v-if="data.Rolls > 10000"> U HAVE REACHED MAX ROLLS</h3>
+    <h3 v-else> You have rolled {{data.Rolls}} times</h3>
     <button v-on:click="RandomNumber()"> ROLL </button>
-    <p v-if="Mercuryamount > 0"> U got {{ Mercuryamount }} Mercury</p>
+    <p v-if="data.Mercuryamount > 0"> U got {{ data.Mercuryamount }} Mercury</p>
     <br>
-    <p v-if="Marsamount > 0"> U got {{ Marsamount }} Mars</p>
+    <p v-if="data.Marsamount > 0"> U got {{ data.Marsamount }} Mars</p>
     <br>
-    <p v-if="Uranusamount > 0"> U got {{ Uranusamount }} Uranus</p>
+    <p v-if="data.Uranusamount > 0"> U got {{ data.Uranusamount }} Uranus</p>
     <br>
-    <p v-if="Venusamount > 0"> U got {{ Venusamount }} Venus</p>
+    <p v-if="data.Venusamount > 0"> U got {{ data.Venusamount }} Venus</p>
     <br>
-    <p v-if="Jupiteramount > 0"> U got {{ Jupiteramount }} Jupiter</p>
+    <p v-if="data.Jupiteramount > 0"> U got {{ data.Jupiteramount }} Jupiter</p>
     <br>
-    <p v-if="Neptuneamount > 0"> U got {{ Neptuneamount }} Neptune</p>
+    <p v-if="data.Neptuneamount > 0"> U got {{ data.Neptuneamount }} Neptune</p>
     <br>
-    <p v-if="Earthamount > 0"> U got {{ Earthamount }} Earth</p>
+    <p v-if="data.Earthamount > 0"> U got {{ data.Earthamount }} Earth</p>
     <br>
-    <p v-if="Saturnamount > 0"> U got {{ Saturnamount }} Saturn</p>
+    <p v-if="data.Saturnamount > 0"> U got {{ data.Saturnamount }} Saturn</p>
     <br>
-    <p v-if="Plutoamount > 0"> U got {{ Plutoamount }} Pluto</p>
+    <p v-if="data.Plutoamount > 0"> U got {{ data.Plutoamount }} Pluto</p>
     <br>
-    <p v-if="Sunamount > 0"> U got {{ Sunamount }} Sun</p>
-
+    <p v-if="data.Sunamount > 0"> U got {{ data.Sunamount }} Sun</p>
   </div>
 
   <div class="History">
-    
+
   </div>
   
+  <div class="DestCard">
+    <DestCard
+    v-for="destinations in destination"
+    :key="destination.name"
+    :Destination="destinations"
+    
+    />
+  </div>
+
 </template>
 
 <style>
@@ -55,150 +62,197 @@
     overflow-y: scroll;
   };
 
+.DestCard{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30%;
+}
+
 </style>
 
-<script>
-export default{
-   data() {
-      return {
-        Rolls: 0,
-        randomNum: '',
-        Mercuryamount : 0,
-        Marsamount : 0,
-        Uranusamount: 0,
-        Venusamount: 0,
-        Jupiteramount: 0,
-        Neptuneamount: 0,
-        Earthamount: 0,
-        Saturnamount: 0,
-        Plutoamount: 0,
-        Sunamount: 0,
-     } 
-   },
-  methods: {
+<script setup>
 
-     RollMercury(){
+  var data = {
+      Rolls: 0,
+      randomNum: '',
+      Mercuryamount : 0,
+     Marsamount : 0,
+      Uranusamount: 0,
+      Venusamount: 0,
+      Jupiteramount: 0,
+      Neptuneamount: 0,
+      Earthamount: 0,
+      Saturnamount: 0,
+      Plutoamount: 0,
+      Sunamount: 0,
+    };
+
+
+    function RollMercury(){
       console.log("works?");
-        this.Mercuryamount++;
+        data.Mercuryamount++;
         const carder = `
         <p> You rolled a Mercury</p>
         `
         document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
-    },
-    RollMars(){
+    };
+    function RollMars(){
       console.log("works?");
-        this.Marsamount++;
+        data.Marsamount++;
         const carder = `
         <p> You rolled a Mars</p>
         `
         document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
-    },
-    RollUranus(){
+    };
+    function RollUranus(){
       console.log("works?");
-        this.Uranusamount++;
+        data.Uranusamount++;
         const carder = `
         <p> You rolled a Uranus</p>
         `
         document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
-    },
-    RollVenus(){
+    };
+    function RollVenus(){
       console.log("works?");
-        this.Venusamount++;
+        data.Venusamount++;
+        console.log(data.Venusamount);
         const carder = `
         <p> You rolled a Venus</p>
         `
         document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
-    },
-    RollJupiter(){
+    };
+    function RollJupiter(){
       console.log("works?");
-        this.Jupiteramount++
+        data.Jupiteramount++
         const carder = `
         <p> You rolled a Jupiter</p>
         `
         document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
-    },
-    RollNeptune(){
+    };
+    function RollNeptune(){
       console.log("works?");
-        this.Neptuneamount++;
+        data.Neptuneamount++;
         const carder = `
         <p> You rolled a Neptune</p>
         `
         document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
-    },
-    RollEarth(){
+    };
+    function RollEarth(){
       console.log("works?");
-        this.Earthamount++;
+        data.Earthamount++;
         const carder = `
         <p> You rolled a Earth</p>
         `
         document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
-    },
-    RollSaturn(){
+    };
+    function RollSaturn(){
       console.log("works?");
-        this.Saturnamount++;
+        data.Saturnamount++;
         const carder = `
         <p> You rolled a Saturn</p>
         `
         document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
-    },
-    RollPluto(){
+    };
+    function RollPluto(){
       console.log("works?");
-        this.Plutoamount++;
+        data.Plutoamount++;
         const carder = `
         <p> You rolled a Pluto</p>
         `
         document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
-    },
-    RollSun(){
+    };
+    function RollSun(){
       console.log("works?");
-        this.Sunamount++;
+        data.Sunamount++;
         const carder = `
         <p> You rolled a Sun</p>
         `
         document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
-    },
+    };
 
-    RandomNumber() {
+    function RandomNumber() {
       const myNums = ['Mercury', 'Mars', 'Uranus', 'Venus', 'Jupiter', 'Neptune', 'Earth', 'Saturn', 'Pluto', 'Sun'];
       const randomNum = myNums[Math.floor(Math.random() * myNums.length)];
-      this.randomNum = randomNum;
-      this.Rolls++
+      data.randomNum = randomNum;
+      data.Rolls++
       if(randomNum === 'Mercury'){
-        this.RollMercury();
+        RollMercury();
       }
       if(randomNum === 'Mars'){
-        this.RollMars();
+        RollMars();
       }
       if(randomNum === 'Uranus'){
-        this.RollUranus();
+        RollUranus();
       }
       if(randomNum === 'Venus'){
-        this.RollVenus();
+        RollVenus();
       }
       if(randomNum === 'Jupiter'){
-        this.RollJupiter();
+        RollJupiter();
       }
       if(randomNum === 'Neptune'){
-        this.RollNeptune();
+        RollNeptune();
       }
       if(randomNum === 'Earth'){
-        this.RollEarth();
+        RollEarth();
       }
       if(randomNum === 'Saturn'){
-        this.RollSaturn();
+        RollSaturn();
       }
       if(randomNum === 'Pluto'){
-        this.RollPluto();
+        RollPluto();
       }
       if(randomNum === 'Sun'){
-        this.RollSun();
+        RollSun();
       }
       else()=>{
         console.log("U a Bafoon")
       }
       console.log(randomNum)
-    },
-  },
-}
+    };
+
+  import DestCard from '@/components/DestCard.vue';
+const destination = 
+[
+        {
+          name: "Venetian Renaissance",
+          International: true,
+          price: 1300,
+          img: "https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80&quot;",
+        },
+        {
+          name: "Swiss Mountain Getaway",
+          International: true,
+          price: 800,
+          img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1476&q=80&quot;",
+        },
+        {
+          name: "Ibizan Coastal Vacation",
+          International: true,
+          price: 1200,
+          img: "https://images.unsplash.com/photo-1547138494-97041dec734b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80&quot;",
+        },
+        {
+          name: "Hawaiian Vacation",
+          International: false,
+          price: 900,
+          img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80&quot;",
+        },
+        {
+          name: "Cascade Mountains",
+          International: false,
+          price: 400,
+          img: "https://images.unsplash.com/photo-1511497584788-876760111969?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80&quot;",
+        },
+        {
+          name: "Egyptian Exploration",
+          International: true,
+          price: 800,
+          img: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80&quot;",
+        },
+      ];
+
 
 </script>

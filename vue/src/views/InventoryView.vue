@@ -1,9 +1,9 @@
 <template>
   <div class="Inventory"> 
-    <h3 v-if="data.Rolls > 10000"> U HAVE REACHED MAX ROLLS</h3>
-    <h3 v-else> You have rolled {{data.Rolls}} times</h3>
+<!--     <h3 v-if="data.Rolls > 10000"> U HAVE REACHED MAX ROLLS</h3>
+    <h3 v-else> You have rolled {{data.Rolls}} times</h3> -->
     <button v-on:click="RandomNumber()"> ROLL </button>
-    <p v-if="data.Mercuryamount > 0"> U got {{ data.Mercuryamount }} Mercury</p>
+<!--     <p v-if="data.Mercuryamount > 0"> U got {{ data.Mercuryamount }} Mercury</p>
     <br>
     <p v-if="data.Marsamount > 0"> U got {{ data.Marsamount }} Mars</p>
     <br>
@@ -21,14 +21,14 @@
     <br>
     <p v-if="data.Plutoamount > 0"> U got {{ data.Plutoamount }} Pluto</p>
     <br>
-    <p v-if="data.Sunamount > 0"> U got {{ data.Sunamount }} Sun</p>
+    <p v-if="data.Sunamount > 0"> U got {{ data.Sunamount }} Sun</p> -->
   </div>
 
   <div class="History">
 
   </div>
   
-  <div class="DestCard">
+  <div class="DestCard1">
     <DestCard
     v-for="destinations in destination"
     :key="destination.name"
@@ -39,8 +39,7 @@
 
 </template>
 
-<style>
-@media (min-width: 1024px) {
+<style scoped>
 .Inventory {
     min-height: 100vh;
     display: flex;
@@ -48,32 +47,45 @@
     align-items: center;
     padding-top: 30%;
   };
+
+.Inventory button{
+  padding: 20px;
+  background-color: black;
+  color: white;
 }
 
-.History {
-    max-height: 70vh;
-    max-width: 15vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    position: absolute;
-    right: 20%;
-    margin-top: 5%;
-    overflow-y: scroll;
-  };
-
-.DestCard{
-  min-height: 100vh;
+.DestCard1{
+  max-width: 40%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 30%;
-}
+  position: absolute;
+  right: 0
+};
+
+.DestCard1 img{
+  object-fit: contain;
+};
+
+.History {
+  max-height: 70vh;
+  max-width: 15vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: absolute;
+  right: 20%;
+  margin-top: 5%;
+  overflow-y: scroll;
+};
+
 
 </style>
 
 <script setup>
-
+  import DestCard from '@/components/DestCard.vue';
   var data = {
       Rolls: 0,
       randomNum: '',
@@ -213,7 +225,6 @@
       console.log(randomNum)
     };
 
-  import DestCard from '@/components/DestCard.vue';
 const destination = 
 [
         {

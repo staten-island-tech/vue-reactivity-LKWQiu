@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="card">
         <h1>{{ Destination.name }}</h1>
-        <img :src="Destination.img" alt="">
+        <img class="img" :src="Destination.img" alt="">
     </div>
 </template>
 
@@ -10,3 +10,14 @@
         Destination: Object,
     });
 </script>
+
+<style scoped>
+.card{
+    width:50%;
+    height: auto;
+}
+.img{
+    width: inherit;
+    object-fit: contain;
+}
+</style>

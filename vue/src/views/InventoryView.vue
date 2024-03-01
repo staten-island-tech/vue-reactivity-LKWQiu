@@ -24,52 +24,8 @@
     <p v-if="data.Sunamount > 0"> U got {{ data.Sunamount }} Sun</p> -->
   </div>
 
-  <div class="History">
-
-  </div>
-  
-  <div class="DestCard1">
-    <DestCard
-    v-for="destinations in destination"
-    :key="destination.name"
-    :Destination="destinations"
-    
-    />
-  </div>
-
-</template>
-
-<style scoped>
-.Inventory {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30%;
-  };
-
-.Inventory button{
-  padding: 20px;
-  background-color: black;
-  color: white;
-}
-
-.DestCard1{
-  max-width: 40%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 30%;
-  position: absolute;
-  right: 0
-};
-
-.DestCard1 img{
-  object-fit: contain;
-};
-
-.History {
+  <div class="History1" 
+  style="  
   max-height: 70vh;
   max-width: 15vh;
   display: flex;
@@ -78,11 +34,19 @@
   position: absolute;
   right: 20%;
   margin-top: 5%;
-  overflow-y: scroll;
-};
+  overflow-y: scroll;" >
+  </div>
+  
+  <div class="DestCard1">
+    <DestCard
+    v-for="randomNum in Destination"
+    :key="Destination.name"
+    :Destination="randomNum"
+    />
+  </div>
 
+</template>
 
-</style>
 
 <script setup>
   import DestCard from '@/components/DestCard.vue';
@@ -108,7 +72,7 @@
         const carder = `
         <p> You rolled a Mercury</p>
         `
-        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
+        document.querySelector(".History1").insertAdjacentHTML("beforeend", carder)
     };
     function RollMars(){
       console.log("works?");
@@ -116,7 +80,7 @@
         const carder = `
         <p> You rolled a Mars</p>
         `
-        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
+        document.querySelector(".History1").insertAdjacentHTML("beforeend", carder)
     };
     function RollUranus(){
       console.log("works?");
@@ -124,7 +88,7 @@
         const carder = `
         <p> You rolled a Uranus</p>
         `
-        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
+        document.querySelector(".History1").insertAdjacentHTML("beforeend", carder)
     };
     function RollVenus(){
       console.log("works?");
@@ -133,7 +97,7 @@
         const carder = `
         <p> You rolled a Venus</p>
         `
-        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
+        document.querySelector(".History1").insertAdjacentHTML("beforeend", carder)
     };
     function RollJupiter(){
       console.log("works?");
@@ -141,7 +105,7 @@
         const carder = `
         <p> You rolled a Jupiter</p>
         `
-        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
+        document.querySelector(".History1").insertAdjacentHTML("beforeend", carder)
     };
     function RollNeptune(){
       console.log("works?");
@@ -149,7 +113,7 @@
         const carder = `
         <p> You rolled a Neptune</p>
         `
-        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
+        document.querySelector(".History1").insertAdjacentHTML("beforeend", carder)
     };
     function RollEarth(){
       console.log("works?");
@@ -157,7 +121,7 @@
         const carder = `
         <p> You rolled a Earth</p>
         `
-        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
+        document.querySelector(".History1").insertAdjacentHTML("beforeend", carder)
     };
     function RollSaturn(){
       console.log("works?");
@@ -165,7 +129,7 @@
         const carder = `
         <p> You rolled a Saturn</p>
         `
-        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
+        document.querySelector(".History1").insertAdjacentHTML("beforeend", carder)
     };
     function RollPluto(){
       console.log("works?");
@@ -173,7 +137,7 @@
         const carder = `
         <p> You rolled a Pluto</p>
         `
-        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
+        document.querySelector(".History1").insertAdjacentHTML("beforeend", carder)
     };
     function RollSun(){
       console.log("works?");
@@ -181,7 +145,7 @@
         const carder = `
         <p> You rolled a Sun</p>
         `
-        document.querySelector(".History").insertAdjacentHTML("beforeend", carder)
+        document.querySelector(".History1").insertAdjacentHTML("beforeend", carder)
     };
 
     function RandomNumber() {
@@ -191,6 +155,14 @@
       data.Rolls++
       if(randomNum === 'Mercury'){
         RollMercury();
+        const randomNum = [
+        {
+          name: "Venetian Renaissance",
+          International: true,
+          price: 1300,
+          img: "https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80&quot;",
+        },
+      ];
       }
       if(randomNum === 'Mars'){
         RollMars();
@@ -225,45 +197,38 @@
       console.log(randomNum)
     };
 
-const destination = 
-[
-        {
-          name: "Venetian Renaissance",
-          International: true,
-          price: 1300,
-          img: "https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80&quot;",
-        },
-        {
-          name: "Swiss Mountain Getaway",
-          International: true,
-          price: 800,
-          img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1476&q=80&quot;",
-        },
-        {
-          name: "Ibizan Coastal Vacation",
-          International: true,
-          price: 1200,
-          img: "https://images.unsplash.com/photo-1547138494-97041dec734b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80&quot;",
-        },
-        {
-          name: "Hawaiian Vacation",
-          International: false,
-          price: 900,
-          img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1173&q=80&quot;",
-        },
-        {
-          name: "Cascade Mountains",
-          International: false,
-          price: 400,
-          img: "https://images.unsplash.com/photo-1511497584788-876760111969?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80&quot;",
-        },
-        {
-          name: "Egyptian Exploration",
-          International: true,
-          price: 800,
-          img: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80&quot;",
-        },
-      ];
 
 
 </script>
+
+
+<style scoped>
+.Inventory {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30%;
+  };
+
+.Inventory button{
+  padding: 20px;
+  background-color: black;
+  color: white;
+};
+
+.DestCard1{
+  max-width: 40%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30%;
+  position: absolute;
+  right: 0;
+};
+
+.DestCard1 img{
+  object-fit: contain;
+};
+</style>

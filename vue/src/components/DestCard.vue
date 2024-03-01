@@ -13,8 +13,8 @@
 
 <style scoped>
 .card{
-    width:50%;
-    height: auto;
+    width: 50%;
+    height: 50%;
 }
 .img{
     width: inherit;
